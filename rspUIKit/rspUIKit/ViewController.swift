@@ -43,9 +43,22 @@ class ViewController: UIViewController {
             resultMessage.text = "이겼습니다"
         }
         print("random\(rspRandomIndex)")
+        print("random\(rspRandomIndex)")
         print("tag: \(sender.tag )")
     }
     
+    @IBAction func resetButton(_ sender: UIButton) {
+        resultMessage.text = "아래 버튼을 선택 하세요"
+        loadImage(imageName: "")
+        //subview를 돌면서 모든 imageView를 찾아 삭제
+        for subview in self.view.subviews {
+            if let imageView = subview as? UIImageView {
+                imageView.removeFromSuperview()
+            }
+        }
+
+        
+    }
     
     
     func loadImage(imageName: String) {
