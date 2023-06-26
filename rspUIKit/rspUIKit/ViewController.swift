@@ -28,22 +28,22 @@ class ViewController: UIViewController {
     
     @IBAction func selectedButton(_ sender: UIButton) {
         let rspRandomIndex: Int = Int.random(in: 1...3)
-        let buttonIndex = sender.tag + 1
+         
         
         loadImage(imageName: rsp[rspRandomIndex])
-        userImage(imageName: rsp[buttonIndex])
+        userImage(imageName: rsp[sender.tag ])
         
-        if buttonIndex == rspRandomIndex {
+        if sender.tag  == rspRandomIndex {
             resultMessage.text = "비겼습니다"
             
-        } else if (buttonIndex % 3) + 1 == rspRandomIndex {
+        } else if (sender.tag  % 3) + 1 == rspRandomIndex {
             resultMessage.text = "졌습니다"
             
         } else {
             resultMessage.text = "이겼습니다"
         }
         print("random\(rspRandomIndex)")
-        print("tag: \(buttonIndex)")
+        print("tag: \(sender.tag )")
     }
     
     
